@@ -12,7 +12,7 @@
 
 ## 🧪 사용 데이터
 
-- **데이터 출처:** [Kaggle - Smart Manufacturing IoT Dataset](https://www.kaggle.com/datasets/ziya07/smart-manufacturing-iot-cloud-monitoring-dataset)
+- **데이터 출처:** https://www.kaggle.com/datasets/animeshkumarnayak/pcb-fault-detection
 - **주요 변수**
   - `temperature`, `vibration`, `humidity`, `pressure`, `energy_consumption`
   - `predicted_remaining_life`, `maintenance_required`, `machine_status`, `failure_type`
