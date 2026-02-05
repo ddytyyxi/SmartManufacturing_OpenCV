@@ -1,0 +1,1 @@
+# SmartManufacturing_OpenCV
