@@ -1,0 +1,5 @@
+train: /content/drive/MyDrive/Real_PCB/Data/train/images
+val: /content/drive/MyDrive/Real_PCB/Data/validation/images
+
+nc: 8
+names: ['Cap1', 'Cap2', 'Cap3', 'Cap4', 'MOSFET', 'Mov', 'Resistor', 'Transformer']
