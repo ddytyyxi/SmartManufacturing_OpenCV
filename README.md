@@ -1,54 +1,128 @@
-# 🔧SmartManufacturing-OpenCV
-스마트 제조 환경에서 기계의 센서 데이터를 기반으로 이상 징후를 분석하고,  
-정비가 필요한 조건을 도출하는 프로젝트입니다.
+# 🔧 SmartManufacturing-OpenCV
+
+스마트 제조 환경에서 생산되는 PCB 기판을 구성하는 요소를 식별하는 프로젝트
+YOLO 객체 탐지 모델을 활용하여 제조 초기 단계에서 PCB 부품 누락 및 결함을 자동으로 검출합니다.
 
 <br/>
 
 ## 📌 프로젝트 개요
-유지보수가 필요한 경우에 이상 징후 패턴 분석하고, 예측 정비 기준 조건을 수립하는 것을 목표로 합니다.
 
+본 프로젝트는 인쇄회로기판(PCB)의 제조 품질 관리를 자동화하기 위해 딥러닝 기반 객체 탐지 기술을 적용
+
+### 주요 목표
+- PCB 기판 상의 전자 부품 자동 인식
+- 부품 누락 및 배치 오류 검출
+- 제조 공정 초기 단계의 불량 예방
+
+### 핵심 기능
+- 저항, 캐패시터, IC, 커넥터 등 다양한 PCB 부품 탐지
+- 실시간 품질 검사 가능
+- 높은 정확도의 객체 인식
+
+<br/>
+
+## 🗂️ 프로젝트 구조
+
+```
+SmartManufacturing-OpenCV/
+├── data/                    # 데이터셋 폴더
+│   ├── train/              # 학습 데이터
+│   ├── validation/         # 검증 데이터
+│   └── test/               # 테스트 데이터
+├── models/                  # 학습된 모델 파일
+│   ├── best.pt             # 최고 성능 모델
+│   └── last.pt             # 마지막 에포크 모델
+├── notebook/                # Colab 노트북
+│   ├── train.ipynb         # 모델 학습
+│   └── predict.ipynb       # 예측 및 평가
+├── scripts/                 # 실행 스크립트
+├── results/                 # 학습 결과 및 로그
+└── requirements.txt         # 필요 패키지
+```
 
 <br/>
 
 ## 🧪 사용 데이터
 
-- **데이터 출처:** https://www.kaggle.com/datasets/animeshkumarnayak/pcb-fault-detection
-- **주요 변수**
-  - `temperature`, `vibration`, `humidity`, `pressure`, `energy_consumption`
-  - `predicted_remaining_life`, `maintenance_required`, `machine_status`, `failure_type`
+- **데이터 출처:** [Dataset Ninja - PCB Component Detection](https://datasetninja.com/pcb-component-detection)
+- **데이터셋 크기:** 약 2,000장 이미지
+- **어노테이션 형식:** YOLO 바운딩 박스
+
+### 주요 클래스
+names: ['Cap1', 'Cap2', 'Cap3', 'Cap4', 'MOSFET', 'Mov', 'Resistor', 'Transformer']
 
 <br/>
 
 ## 🧑‍💻 기술 스택
 
-- Python (NumPy, Pandas, Matplotlib, Seaborn, KaggleHub)
-- Jupyter Notebook
-- Git, GitHub
+### Deep Learning & Computer Vision
+- **YOLOv8**: 객체 탐지 모델
+- **Ultralytics**: YOLO 프레임워크
+
+### 개발 환경 및 도구
+- **Python 3.10+**
+- **Google Colab**: GPU 기반 학습 환경
+- **Libraries**: PyTorch, OpenCV, NumPy, Pandas, Matplotlib
+
+### 버전 관리
+- **Git / GitHub**: 코드 버전 관리 및 협업
 
 <br/>
 
-## 📄 데이터 컬럼 설명
+## 🚀 시작하기
 
-| 🏷️ 컬럼명 | 📘 설명 | 🧠 분석 활용 |
-|-----------|---------|--------------|
-| `timestamp` | 데이터가 기록된 시점 (YYYY-MM-DD HH:MM:SS) | 시간 흐름 분석, 고장 시점 확인 |
-| `machine_id` | 각 기계를 식별하는 고유 ID | 기계별 이상 패턴 및 고장률 분석 |
-| `temperature` 🌡️ | 기계의 온도 (℃) | 과열 여부, Overheating 고장 감지 |
-| `vibration` 📈 | 진동 수치 (mm/s) | 기계 불안정성, 정비 필요성 탐지 |
-| `humidity` 💧 | 습도 (%) | 주변 환경 조건 분석, 센서 오류 가능성 |
-| `pressure` 🧯 | 압력 (단위 미상) | 기계 부하, 외부 환경 영향 분석 |
-| `energy_consumption` ⚡ | 에너지 소비량 (kWh 등) | 작업 부하, 고장 전 과부하 탐색 |
-| `predicted_remaining_life` ⏳ | 예측된 남은 수명 (단위 미상) | 정비 타이밍 결정, 고장 예측 근거 |
-| `machine_status` 🛠️ | 기계 상태 코드<br>• `0`: 대기<br>• `1`: 가동<br>• `2`: 고장 | 실제 고장 여부 판단 기준 |
-| `maintenance_required` 🧾 | 정비 필요 여부<br>• `0`: 필요 없음<br>• `1`: 정비 필요 | 예측 모델의 타깃 값 (정답값) |
-| `failure_type` ❌ | 고장 원인 종류<br>`Overheating`, `Power Failure`, `Normal` 등 | 고장 유형별 조건 비교 분석 |
-| `downtime_risk` 🚨 | 고장 시 예상 손실 위험도 (정량 수치) | 고장 우선순위 및 위험도 평가 |
+### 1. 환경 설정
 
+```bash
+# 저장소 클론
+git clone https://github.com/your-username/SmartManufacturing-OpenCV.git
+cd SmartManufacturing-OpenCV
 
-## ❗ 주요 인사이트
+# 필요 패키지 설치
+pip install -r requirements.txt
+```
 
-- 기준 조건에 해당하지 않는 일부 데이터에서도 실제 고장이 발생함
-- 이 경우, 주요 센서 값에 뚜렷한 이상 징후는 관찰되지 않음 → 정비 판단의 한계
-- 센서 기반 감지 외에도 기계 상태 등 보조 지표의 병행 필요성 확인
+### 2. 데이터셋 준비
+
+```bash
+# data/ 폴더에 데이터셋 배치
+# 구조는 data/README.md 참고
+```
+
+### 3. 모델 학습
+
+Google Colab에서 `notebook/train.ipynb` 실행
+
+### 4. 예측 수행
+
+```python
+from ultralytics import YOLO
+
+# 모델 로드
+model = YOLO('models/best.pt')
+
+# 예측
+results = model.predict('data/test/images/')
+results[0].show()
+```
 
 <br/>
+
+## 📊 모델 성능
+
+| Metric | Value |
+|--------|-------|
+| mAP50 | 00.0% |
+| mAP50-95 | 00.0% |
+| Precision | 00.0% |
+| Recall | 00.0% |
+
+*학습 완료 후 업데이트 예정*
+
+<br/>
+
+## 💡 주요 인사이트
+
+- YOLO 모델을 통해 PCB 부품 탐지의 자동화 가능성 확인
+- 실시간 검사 시스템 구축을 위한 기반 기술 확보
+- 제조 공정에서의 품질 관리 효율성 향상 기대
