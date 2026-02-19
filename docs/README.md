@@ -14,7 +14,7 @@ OpenCV 프로젝트 (5조)
 
 [개발 환경]
 
-언어: Python 3.10
+언어: Python 3.11
 
 개발 도구: Google Colab
 
