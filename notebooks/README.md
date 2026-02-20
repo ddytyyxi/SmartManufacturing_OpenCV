@@ -39,7 +39,7 @@ YOLO 모델 학습을 수행합니다.
 ---
 
 ## 💻 실행 환경
-- Python 3.9+
+- Python 3.10+
 - GPU 권장 (Google Colab)
 
 필요 라이브러리:
