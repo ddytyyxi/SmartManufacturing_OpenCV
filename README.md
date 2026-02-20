@@ -112,12 +112,11 @@ results[0].show()
 
 | Metric | Value |
 |--------|-------|
-| mAP50 | 00.0% |
-| mAP50-95 | 00.0% |
-| Precision | 00.0% |
-| Recall | 00.0% |
+| mAP50 | 97.91% |
+| mAP50-95 | 77.99% |
+| Precision | 97.69% |
+| Recall | 99.41% |
 
-*학습 완료 후 업데이트 예정*
 
 <br/>
 
