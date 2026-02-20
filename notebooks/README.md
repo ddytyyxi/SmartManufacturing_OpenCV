@@ -6,7 +6,7 @@
 ```
 ## 📁 Notebook 설명
 
-### 1. `data_preparation.ipynb`
+### 1. [`data_preparation.ipynb]([url](https://github.com/ddytyyxi/SmartManufacturing_OpenCV/blob/main/notebooks/1.data_preparation.ipynb))`
 데이터 전처리 및 학습을 위한 데이터셋 구조를 구성합니다.
 - 이미지 및 라벨 정리
 - YOLO 학습용 폴더 구조 생성
