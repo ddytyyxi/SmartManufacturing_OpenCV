@@ -2,16 +2,6 @@
 이 폴더에는 PCB 부품 검출을 위한 전체 딥러닝 파이프라인이 단계별로 구성되어 있습니다.
 모델은 YOLO 기반 객체 탐지를 사용하여 학습 및 추론을 수행합니다.
 
-## ⚠️ 실행 전 유의 사항
-실행을 위한 패키지 설치 필수!
-```bash
-pip install -r requirements.txt
-```
-
-## 📋 Pipeline Overview
-
-```
-1. Data Preparation → 2. Model Training → 3. Model Evaluation → 4. Inference Demo
 ```
 
 ## 📁 Notebook 설명
