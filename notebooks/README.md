@@ -3,7 +3,7 @@
 모델은 YOLO 기반 객체 탐지를 사용하여 학습 및 추론을 수행합니다.
 
 ```
-
+```
 ## 📁 Notebook 설명
 
 ### 1. `data_preparation.ipynb`
