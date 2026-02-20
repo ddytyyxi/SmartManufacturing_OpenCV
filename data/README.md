@@ -2,7 +2,7 @@
 
 ## PCB Component Detection Dataset 데이터셋 정보
 
-[Dataset Ninja - PCB Component Detection](https://datasetninja.com/pcb-component-detection) 데이터셋 사용
+((https://www.kaggle.com/datasets/animeshkumarnayak/pcb-fault-detection)) 데이터셋 사용
 
 **수정
 데이터셋 정보 간략 소개
